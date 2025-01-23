@@ -40,7 +40,7 @@ const Home = () => {
                 setOpenAddEditModal({ isShown: true, type: "add", data: null});
             }}
         >
-            <MdAdd className="text-[32px] text-white" />
+            <MdAdd className="text-[64px] text-white" />
         </button>
 
         <Modal
@@ -59,7 +59,13 @@ const Home = () => {
  */} 
 
  
-            < AddEditNotes />
+            <AddEditNotes
+            type={openAddEditModal.type}
+            noteData={openAddEditModal.data}
+                onClose={() => {
+                    setOpenAddEditModal({ isShown: false, type: "add", data: null});
+                }}
+            />
         </Modal>
        </>
     )
