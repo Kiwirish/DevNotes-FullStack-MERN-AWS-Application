@@ -1,0 +1,58 @@
+Documentation for MERN notes project: 
+
+-- Frontend: 
+
+    - React for user interface
+    - React Router for client side routing
+    - TailwindCSS styling
+    - React Modal for modals/pop ups
+    - React Icons for icons throughout UI
+
+    Frontend Structure: 
+    - src/ 
+        - pages/ 
+            - Home rendering notes and add/edit modal
+            - Login page with client-side validation
+            - SignUp page with client-side validation
+        - Components/
+            - Navbar 
+            - cards/NoteCard
+            - cards/ProfileInfo
+            - Input/PasswordInput
+            - Input/TagInput 
+            - SearchBar/SearchBar
+        - App.jsx sets up React Router routes (/login etc)
+        - main.jsx renders <App /> into the DOM 
+        - index.css contains tailwind and custom classes
+
+    Frontend Dataflow: 
+        - User fills in forms, clicks buttons etc 
+        -> HTTP requests via fetch to backends REST API
+        -> When responses arrive, frontend updates local components
+
+-- Backend: 
+
+    - Node.js JS runtime environment for server
+    - Express.js framework for building REST API
+    - MongoDB as a NoSQL database storing data in documents
+    - Mongoose ODM library for MongoDB to define schemas
+
+    Backend Structure: 
+    - CURRENTLY BUILDING
+
+    Endpoints:
+
+
+Backend Integration with Frontend:
+- Frontend sends requests via fetch to above Endpoints
+- Backend responds w JSON data
+- 
+
+
+Deployment/cloud hosting: 
+
+    - Create locally, then run frontend React build + backend servers on 
+    AWS ec2 instances to host. 
+    - MongoDB Atlas for managed MongoDB cloud service
+
+
