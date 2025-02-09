@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import TagInput from '../../components/Input/TagInput'
 import { MdClose } from 'react-icons/md'
 import axiosInstance from '../../utils/axiosInstance';
+import Toast from '../../components/ToastMessage/Toast';
 
-const AddEditNotes = ({ noteData, type, getAllNotes, onClose }) => {
+
+const AddEditNotes = ({ noteData, type, getAllNotes, onClose, showToastMessage }) => {
 
     const [title, setTitle] = useState(noteData?.title || "");
     const [content, setContent] = useState(noteData?.content || "");
@@ -22,6 +24,7 @@ const AddEditNotes = ({ noteData, type, getAllNotes, onClose }) => {
             });
     
             if (response.data && response.data.note) {
+                showToastMessage("DevNote added Successfully");
                 getAllNotes();
                 onClose();
             }
@@ -47,6 +50,7 @@ const AddEditNotes = ({ noteData, type, getAllNotes, onClose }) => {
             });
     
             if (response.data && response.data.note) {
+                showToastMessage("DevNote Updated Successfully");
                 getAllNotes();
                 onClose();
             }

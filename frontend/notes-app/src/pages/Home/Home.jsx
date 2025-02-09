@@ -8,7 +8,7 @@ import AddEditNotes from '/Users/blakeleahy/Desktop/MERN-Note-App/frontend/notes
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from '../../utils/axiosInstance';
-
+import Toast from '../../components/ToastMessage/Toast';
 
 
 
@@ -20,6 +20,13 @@ const Home = () => {
         data: null,
 
     });
+    
+    const [showToastMsg, setShowToastMsg] = useState({
+        isShown: false, 
+        message: "",
+        type: "add",
+    });
+
 
     const [allNotes, setAllNotes] = useState([]);
 
@@ -29,6 +36,22 @@ const Home = () => {
 
     const handleEdit = (noteDetails) => {
         setOpenAddEditModal({isShown: true, data: noteDetails, type: "edit"})
+    };
+
+    const showToastMessage = (message, type) => {
+        setShowToastMsg({
+            isShown: true, 
+            message,
+            type,
+        });
+    };
+
+    const handleCloseToast = () => {
+        setShowToastMsg({
+            isShown: false, 
+            message: "",
+            
+        });
     };
 
     // get user info api call
@@ -123,8 +146,16 @@ const Home = () => {
                     setOpenAddEditModal({ isShown: false, type: "add", data: null});
                 }}
                 getAllNotes={getAllNotes}
+                showToastMessage={showToastMessage}
             />
         </Modal>
+
+        <Toast 
+            isShown={showToastMsg.isShown}
+            message={showToastMsg.message}
+            type={showToastMsg.type}
+            onClose={handleCloseToast}
+        /> 
        </>
     )
 }
