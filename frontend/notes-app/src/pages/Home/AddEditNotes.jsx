@@ -7,13 +7,13 @@ const AddEditNotes = ({ noteData, type, onClose }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [tags, setTags] = useState([]);
-
+    
     const [error, setError] = useState("");
 
-    // add new note call
+    // add new note API call
     const addNewNote = async () => {};
 
-    // edit current note call 
+    // edit current note API call 
     const editNote = async () => {};
 
 
