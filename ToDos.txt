@@ -5,6 +5,7 @@ So -> Turn notes into DevNotes
 
 - Need to integrate the rest of the backend API's to the frontend functions and react data saved,
 - Need to transform Notes into DevNotes and perfect apperance attributes
+- Need to add toast msg react component
 - Need to move React/Vite frontend server to EC2 instance
 - Need to move Node/Express backend server to separate EC2 instance
 - Need to add images to each note, stored in an AWS S3 Bucket, associated with the note ID
