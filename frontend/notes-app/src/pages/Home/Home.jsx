@@ -9,7 +9,8 @@ import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from '../../utils/axiosInstance';
 import Toast from '../../components/ToastMessage/Toast';
-
+import EmptyCard from '../../components/EmptyCard/EmptyCard.jsx';
+import AddNotesImg from '/images/add-notes.svg';
 
 
 const Home = () => {
@@ -84,6 +85,31 @@ const Home = () => {
         }
     };
 
+    // delete note 
+    const deleteNote = async (data) => {
+
+        const noteId = data._id; 
+
+        try {
+            const response = await axiosInstance.delete("/delete-note/" + noteId);
+    
+            if (response.data && !response.data.error) {
+                showToastMessage("DevNote Deleted Successfully", 'delete');
+                getAllNotes();
+            }
+
+        } catch (error) {
+            if (
+                error.response &&
+                error.response.data && 
+                error.response.data.message
+            ) {
+                console.log("An unexpected error occurred. Please try again")
+            }
+        }
+
+    };
+
     useEffect(() => {
         getAllNotes();
         getUserInfo();
@@ -97,6 +123,7 @@ const Home = () => {
        <Navbar userInfo = {userInfo} />
 
        <div className = "container mx-auto">
+            {allNotes.length > 0 ? (
             <div className = "grid grid-cols-3 gap-4 mt-8">
                 {allNotes.map((item,index) => (
                     <NoteCard 
@@ -107,12 +134,16 @@ const Home = () => {
                     tags={item.tags}
                     isPinned={item.isPinned}
                     onEdit={() => handleEdit(item)}
-                    onDelete={()=>{}}
+                    onDelete={()=> deleteNote(item)}
                     onPinNote={()=>{}}
                     />
                 ))}
                 
             </div>
+            ) : (
+                <EmptyCard imgSrc={AddNotesImg} message='Create your first DeveloperNote! Click the "+" button 
+                to share projects, code, UI, or ideas.' />
+            )}
        </div>
 
         <button className="w-16 h-16 items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10"
