@@ -1,0 +1,16 @@
+To dos for DevNotes: 
+
+Note app was an initial starting point to turn to DevNotes.
+So -> Turn notes into DevNotes
+
+- Need to integrate the rest of the backend API's to the frontend functions and react data saved,
+- Need to transform Notes into DevNotes and perfect apperance attributes
+- Need to move React/Vite frontend server to EC2 instance
+- Need to move Node/Express backend server to separate EC2 instance
+- Need to add images to each note, stored in an AWS S3 Bucket, associated with the note ID
+- Test DevNotes on public host and purchase domain name for it, sending the user to the frontend ec2 server host URL
+
+-- potentially add comments to notes that users can leave.. 
+
+DevNotes is a platform where developers can leave notes about their developments to learn
+from one another and share projects / creative code.

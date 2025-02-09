@@ -39,6 +39,14 @@ Documentation for MERN notes project:
 
     Backend Structure: 
     - CURRENTLY BUILDING
+    /backend
+        - models/   (MongoDB mongoose schema models)
+            - note.model.js
+            - user.model.js
+        - index.js (API)
+        - Utilities.js for JWT auth token generated for each account login
+        - all other files are for config and MongoDB atlas connection
+    
 
     Endpoints:
 
@@ -54,5 +62,6 @@ Deployment/cloud hosting:
     - Create locally, then run frontend React build + backend servers on 
     AWS ec2 instances to host. 
     - MongoDB Atlas for managed MongoDB cloud service
+    - Add images in AWS S3 Buckets to each note
 
 
