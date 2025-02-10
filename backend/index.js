@@ -1,3 +1,5 @@
+// Backend API 
+
 require("dotenv").config()
 
 
@@ -297,7 +299,6 @@ app.put("/update-note-pinned/:noteId", authenticateToken, async (req, res) => {
 
         }
 
-
         note.isPinned = isPinned;
 
         await note.save();
@@ -314,9 +315,6 @@ app.put("/update-note-pinned/:noteId", authenticateToken, async (req, res) => {
             message: "Internal server error",
         });
     }
-
-
-
 });
 
 // Search note 
