@@ -3,11 +3,21 @@ To dos for DevNotes:
 Note app was an initial starting point to turn to DevNotes.
 So -> Turn notes into DevNotes
 
-- Need to integrate the rest of the backend API's to the frontend functions and react data saved,
+- DONE - Need to integrate the rest of the backend API's to the frontend functions and react data saved,
 
--- Add empty note card for if no cards have been made yet
--- Add Search API so users can search through database for notes
--- Add Pin API so notes that're pinned is noted in db
+RANDOM Development TODOS prior to AWS host integration:
+
+-- Add empty note card for if no cards have been made yet - DONE 
+-- Add Search API so users can search through database for notes - DONE 
+-- Add Pin API so notes that're pinned is noted in db - DONE 
+-- Add Undo Pin (Toast msg and icon changes on pin undo)
+-- Add Home page, with option to direct to login and option to direct to createAccount
+    -Home page has Title, Info on what the app does, Images of developers maybe?
+-- 'DevNotes' title is clickable and will take you to home page 
+-- Apperance / feel improvements to be made
+-- 
+
+TO DO'S for after deploy prior todos:
 
 - Need to transform Notes into DevNotes and perfect apperance attributes
 - Need to add toast msg react component

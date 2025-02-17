@@ -38,7 +38,7 @@ Documentation for MERN notes project:
     - Mongoose ODM library for MongoDB to define schemas
 
     Backend Structure: 
-    - CURRENTLY BUILDING
+    - BUILT
     /backend
         - models/   (MongoDB mongoose schema models)
             - note.model.js
@@ -49,7 +49,7 @@ Documentation for MERN notes project:
     
 
     Endpoints:
-
+    
 
 Backend Integration with Frontend:
 - Frontend sends requests via fetch to above Endpoints
