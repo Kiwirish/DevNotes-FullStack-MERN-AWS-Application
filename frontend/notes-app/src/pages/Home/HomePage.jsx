@@ -1,90 +1,78 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { LightBulbIcon, PencilIcon, ShareIcon } from 'lucide-react';
+import { Code2, BookMarked, Share2 } from 'lucide-react';
+import ThemeToggle from '../../components/Theme/ThemeToggle';
 
 const HomePage = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-primary">DevNotes</h1>
-            <div className="space-x-4">
-              <Link to="/login" className="px-6 py-2 text-primary hover:text-blue-600 font-medium">
-                Login
-              </Link>
-              <Link to="/signup" className="px-6 py-2 bg-primary hover:bg-blue-600 text-white rounded-lg font-medium transition-colors">
-                Sign Up
-              </Link>
+    return (
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
+            {/* Navigation */}
+            <nav className="bg-white dark:bg-slate-800 shadow-sm">
+                <div className="container mx-auto px-6 py-4">
+                    <div className="flex items-center justify-between">
+                        <h1 className="text-2xl font-bold text-primary dark:text-blue-400">DevNotes</h1>
+                        <div className="flex items-center space-x-4">
+                            <ThemeToggle />
+                            <Link to="/login" className="px-6 py-2 text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-blue-400 font-medium">
+                                Login
+                            </Link>
+                            <Link to="/signup" className="px-6 py-2 bg-primary hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-lg font-medium transition-colors">
+                                Sign Up
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            {/* Hero Section */}
+            <div className="container mx-auto px-6 py-16">
+                <div className="text-center max-w-3xl mx-auto">
+                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+                        Your Development Journey, Documented
+                    </h2>
+                    <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">
+                        DevNotes helps you capture, organize, and share your programming knowledge. From quick code snippets to detailed project documentation.
+                    </p>
+                    <Link to="/signup" className="px-8 py-3 bg-primary hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-lg font-medium text-lg transition-colors inline-block">
+                        Start Taking Notes
+                    </Link>
+                </div>
+
+                {/* Feature Cards */}
+                <div className="grid md:grid-cols-3 gap-8 mt-16">
+                    <FeatureCard
+                        icon={<Code2 className="w-6 h-6" />}
+                        title="Code Snippets"
+                        description="Save and organize your code snippets with syntax highlighting and tags"
+                    />
+                    <FeatureCard
+                        icon={<BookMarked className="w-6 h-6" />}
+                        title="Project Notes"
+                        description="Document your projects with rich text formatting and attachments"
+                    />
+                    <FeatureCard
+                        icon={<Share2 className="w-6 h-6" />}
+                        title="Share Knowledge"
+                        description="Collaborate with your team by sharing notes and documentation"
+                    />
+                </div>
             </div>
-          </div>
         </div>
-      </nav>
-
-      {/* Hero Section */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:w-1/2"
-          >
-            <h2 className="text-5xl font-bold text-slate-900 mb-6">
-              Capture Your Code Ideas with DevNotes
-            </h2>
-            <p className="text-lg text-slate-600 mb-8">
-              A modern note-taking platform designed specifically for developers. Store snippets, document projects, and share your knowledge.
-            </p>
-            <Link to="/signup" className="px-8 py-3 bg-primary hover:bg-blue-600 text-white rounded-lg font-medium text-lg transition-colors inline-block">
-              Get Started Free
-            </Link>
-          </motion.div>
-
-          {/* Feature Cards */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 lg:mt-0"
-          >
-            <FeatureCard 
-              icon={<LightBulbIcon className="w-8 h-8" />}
-              title="Capture Ideas"
-              description="Quick and easy note-taking for your development journey"
-            />
-            <FeatureCard 
-              icon={<PencilIcon className="w-8 h-8" />}
-              title="Code Snippets"
-              description="Store and organize your code snippets efficiently"
-            />
-            <FeatureCard 
-              icon={<ShareIcon className="w-8 h-8" />}
-              title="Share Knowledge"
-              description="Collaborate and share notes with your team"
-            />
-            <FeatureCard 
-              icon={<LightBulbIcon className="w-8 h-8" />}
-              title="Stay Organized"
-              description="Tag and categorize your notes for easy access"
-            />
-          </motion.div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 const FeatureCard = ({ icon, title, description }) => (
-  <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-    <div className="text-primary mb-4">
-      {icon}
+    <div className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md transition-all">
+        <div className="text-primary dark:text-blue-400 mb-4">
+            {icon}
+        </div>
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+            {title}
+        </h3>
+        <p className="text-slate-600 dark:text-slate-300">
+            {description}
+        </p>
     </div>
-    <h3 className="text-lg font-semibold text-slate-900 mb-2">{title}</h3>
-    <p className="text-slate-600">{description}</p>
-  </div>
 );
 
 export default HomePage;
