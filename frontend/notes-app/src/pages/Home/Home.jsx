@@ -12,9 +12,11 @@ import Toast from '../../components/ToastMessage/Toast';
 import EmptyCard from '../../components/EmptyCard/EmptyCard.jsx';
 import AddNotesImg from '/images/add-notes.svg';
 import NoResultsImg from '/images/no-results.svg';
-
+import { useTheme } from '../../utils/ThemeContext';
 
 const Home = () => {
+
+    const { isDark } = useTheme();
 
     const [openAddEditModal, setOpenAddEditModal] = useState({
         isShown: false,
@@ -162,80 +164,156 @@ const Home = () => {
 
     }, []);
 
-
     return (
-       <>
-       <Navbar userInfo = {userInfo} onSearchNote = {onSearchNote} handleClearSearch = {handleClearSearch} />
+        <>
+        <Navbar 
+            userInfo={userInfo} 
+            onSearchNote={onSearchNote} 
+            handleClearSearch={handleClearSearch} 
+        />
+ 
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
+             <div className="container mx-auto">
+                 {allNotes.length > 0 ? (
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                         {allNotes.map((item) => (
+                             <NoteCard 
+                                 key={item._id}
+                                 title={item.title}
+                                 date={item.createdOn}
+                                 content={item.content}
+                                 tags={item.tags}
+                                 isPinned={item.isPinned}
+                                 onEdit={() => handleEdit(item)}
+                                 onDelete={() => deleteNote(item)}
+                                 onPinNote={() => updateIsPinned(item)}
+                             />
+                         ))}
+                     </div>
+                 ) : (
+                     <EmptyCard 
+                         imgSrc={isSearch ? NoResultsImg : AddNotesImg}
+                         message={isSearch ? 
+                             "Oops! No DevNotes matching your search." : 
+                             'Create your first DeveloperNote! Click the "+" button to share projects, code, UI, or ideas.'
+                         } 
+                     />
+                 )}
+             </div>
+ 
+             <button 
+                 className="w-16 h-16 fixed right-10 bottom-10 flex items-center justify-center rounded-2xl 
+                           bg-primary hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 
+                           transition-colors"
+                 onClick={() => setOpenAddEditModal({ isShown: true, type: "add", data: null})}
+             >
+                 <MdAdd className="text-[64px] text-white" />
+             </button>
+ 
+             <Modal
+                 isOpen={openAddEditModal.isShown}
+                 onRequestClose={() => {}}
+                 style={{
+                     overlay: {
+                         backgroundColor: "rgba(0,0,0,0.2)",
+                     }
+                 }}
+                 className={`w-[40%] max-h-3/4 rounded-md mx-auto mt-14 p-5 overflow-scroll
+                           ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'} 
+                           border`}
+             >
+                 <AddEditNotes
+                     type={openAddEditModal.type}
+                     noteData={openAddEditModal.data}
+                     onClose={() => setOpenAddEditModal({ isShown: false, type: "add", data: null})}
+                     getAllNotes={getAllNotes}
+                     showToastMessage={showToastMessage}
+                 />
+             </Modal>
+ 
+             <Toast 
+                 isShown={showToastMsg.isShown}
+                 message={showToastMsg.message}
+                 type={showToastMsg.type}
+                 onClose={handleCloseToast}
+             /> 
+        </div>
+        </>
+     )
+ }
+//     return (
+//        <>
+//        <Navbar userInfo = {userInfo} onSearchNote = {onSearchNote} handleClearSearch = {handleClearSearch} />
 
-       <div className = "container mx-auto">
-            {allNotes.length > 0 ? (
-            <div className = "grid grid-cols-3 gap-4 mt-8">
-                {allNotes.map((item,index) => (
-                    <NoteCard 
-                    key = {item._id}
-                    title ={item.title}
-                    date={item.createdOn}
-                    content={item.content}
-                    tags={item.tags}
-                    isPinned={item.isPinned}
-                    onEdit={() => handleEdit(item)}
-                    onDelete={()=> deleteNote(item)}
-                    onPinNote={()=> updateIsPinned(item)}
-                    />
-                ))}
+//        <div className = "container mx-auto">
+//             {allNotes.length > 0 ? (
+//             <div className = "grid grid-cols-3 gap-4 mt-8">
+//                 {allNotes.map((item,index) => (
+//                     <NoteCard 
+//                     key = {item._id}
+//                     title ={item.title}
+//                     date={item.createdOn}
+//                     content={item.content}
+//                     tags={item.tags}
+//                     isPinned={item.isPinned}
+//                     onEdit={() => handleEdit(item)}
+//                     onDelete={()=> deleteNote(item)}
+//                     onPinNote={()=> updateIsPinned(item)}
+//                     />
+//                 ))}
                 
-            </div>
-            ) : (
-                <EmptyCard 
-                imgSrc={isSearch ? NoResultsImg : AddNotesImg}
-                 message={isSearch ? `Oops! No DevNotes matching your search.`: `Create your first DeveloperNote! Click the "+" button 
-                to share projects, code, UI, or ideas.`} />
-            )}
-       </div>
+//             </div>
+//             ) : (
+//                 <EmptyCard 
+//                 imgSrc={isSearch ? NoResultsImg : AddNotesImg}
+//                  message={isSearch ? `Oops! No DevNotes matching your search.`: `Create your first DeveloperNote! Click the "+" button 
+//                 to share projects, code, UI, or ideas.`} />
+//             )}
+//        </div>
 
-        <button className="w-16 h-16 items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10"
-            onClick={() => {
-                setOpenAddEditModal({ isShown: true, type: "add", data: null});
-            }}
-        >
-            <MdAdd className="text-[64px] text-white" />
-        </button>
+//         <button className="w-16 h-16 items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10"
+//             onClick={() => {
+//                 setOpenAddEditModal({ isShown: true, type: "add", data: null});
+//             }}
+//         >
+//             <MdAdd className="text-[64px] text-white" />
+//         </button>
 
-        <Modal
-            isOpen={openAddEditModal.isShown}
-            onRequestClose={()=>{}}
-            style={{
-                overlay: {
-                    backgroundColor: "rgba(0,0,0,0.2)",
-                },
-            }}
-            contentLabel=""
-            className=" w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-scroll
-            "
-        >
-{/* w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-scroll
- */} 
+//         <Modal
+//             isOpen={openAddEditModal.isShown}
+//             onRequestClose={()=>{}}
+//             style={{
+//                 overlay: {
+//                     backgroundColor: "rgba(0,0,0,0.2)",
+//                 },
+//             }}
+//             contentLabel=""
+//             className=" w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-scroll
+//             "
+//         >
+// {/* w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-scroll
+//  */} 
 
  
-            <AddEditNotes
-            type={openAddEditModal.type}
-            noteData={openAddEditModal.data}
-                onClose={() => {
-                    setOpenAddEditModal({ isShown: false, type: "add", data: null});
-                }}
-                getAllNotes={getAllNotes}
-                showToastMessage={showToastMessage}
-            />
-        </Modal>
+//             <AddEditNotes
+//             type={openAddEditModal.type}
+//             noteData={openAddEditModal.data}
+//                 onClose={() => {
+//                     setOpenAddEditModal({ isShown: false, type: "add", data: null});
+//                 }}
+//                 getAllNotes={getAllNotes}
+//                 showToastMessage={showToastMessage}
+//             />
+//         </Modal>
 
-        <Toast 
-            isShown={showToastMsg.isShown}
-            message={showToastMsg.message}
-            type={showToastMsg.type}
-            onClose={handleCloseToast}
-        /> 
-       </>
-    )
-}
+//         <Toast 
+//             isShown={showToastMsg.isShown}
+//             message={showToastMsg.message}
+//             type={showToastMsg.type}
+//             onClose={handleCloseToast}
+//         /> 
+//        </>
+//     )
+// }
 
 export default Home
