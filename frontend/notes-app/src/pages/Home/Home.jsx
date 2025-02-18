@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Navbar from "../../components/Navbar/Navbar";
 import moment from "moment";
 //import ProfileInfo from "../../components/cards/ProfileInfo";
-import NoteCard from '/Users/blakeleahy/Desktop/MERN-Note-App/frontend/notes-app/src/components/cards/NoteCard.jsx';
+import NoteCard from '../../components/cards/NoteCard.jsx';
 import { MdAdd, MdOutlineAlarmAdd } from "react-icons/md";
-import AddEditNotes from '/Users/blakeleahy/Desktop/MERN-Note-App/frontend/notes-app/src/pages/Home/AddEditNotes.jsx';
+import AddEditNotes from '../../pages/Home/AddEditNotes.jsx';
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from '../../utils/axiosInstance';
@@ -173,7 +173,7 @@ const Home = () => {
         />
  
         <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
-             <div className="container mx-auto">
+            <div className="container mx-auto px-6 py-8">
                  {allNotes.length > 0 ? (
                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                          {allNotes.map((item) => (
