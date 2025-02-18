@@ -3,7 +3,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
 import PasswordInput from '../../components/Input/PasswordInput';
 import { validateEmail } from '../../utils/helper';
-import SearchBar from '/Users/blakeleahy/Desktop/MERN-Note-App/frontend/notes-app/src/components/SearchBar/SearchBar.jsx';
 import { useNavigate } from "react-router-dom";
 import axiosInstance from '../../utils/axiosInstance';
 
