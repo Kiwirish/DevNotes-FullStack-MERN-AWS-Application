@@ -2,6 +2,8 @@
 
 ### Devnotes - FullStack MERN AWS Project
 
+Currently transferring frontend and backend servers to AWS EC2 instances. UI is done with light/dark mode option for now. Improvements made once deployed on AWS successfully..
+
 #### current app: 
 
 <img src="images/Screenshot 2025-02-09 at 9.59.49 PM.png" width="350" title="hover text">
