@@ -15,6 +15,7 @@ Dark Mode Home Page:
 <img src="images/Screenshot 2025-02-19 at 7.44.02 PM.png" width="350" title="homeDarkMode">
 
 SignUp + SignUp Dark mode: 
+
 <img src="images/Screenshot 2025-02-19 at 7.44.27 PM.png" width="350" title="SignUp">
 
 <img src="images/Screenshot 2025-02-19 at 7.44.39 PM.png" width="350" title="SignUpDarkMode">
