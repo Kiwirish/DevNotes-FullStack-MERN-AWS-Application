@@ -29,7 +29,34 @@ Check documentation for information on the project, tech, structure and plan
 
 Check ToDos for the rough development process. 
 
-Base frontend complete minus styling finalisations
-Backend complete minus images in AWS S3 buckets using IaC
-API integrations from back to frontend data near complete..
+## For further DevNotes development:
 
+### For local development:
+
+Change constants.js to: 
+
+export const BASE_URL = "http://localhost:8000"
+
+Run both frontend and backend locally
+
+Test your changes
+
+
+### Before deploying:
+
+Change constants.js back to:
+
+export const BASE_URL = "http://54.166.240.19:8000"
+
+Commit and push to GitHub
+
+
+### On EC2 instances:
+
+Pull the changes: git pull
+
+Rebuild frontend: npm run build
+
+Copy to web server: sudo cp -r dist/* /var/www/devnotes/
+
+Restart backend if needed: pm2 restart devnotes-backend

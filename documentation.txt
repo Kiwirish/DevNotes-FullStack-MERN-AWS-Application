@@ -1,4 +1,16 @@
-Documentation for MERN notes project: 
+Documentation for MERN Devnotes project: 
+
+-- Deployment/cloud hosting: 
+    
+    - Terraform IaC Automated deployment 
+
+    - Deployed frontend on EC2 instance, allowing inbound traffic from:
+        - Backend ec2 instance IP
+    
+    - Deployed backend on separate EC2 instance, allowing incound traffic from:
+        - Frontend ec2 instance IP
+        - DB connection IP 
+
 
 -- Frontend: 
 
@@ -56,6 +68,19 @@ Backend Integration with Frontend:
 - Backend responds w JSON data
 - 
 
+On code change, post deployment, currently: 
+-Push changes to GitHub
+-SSH into each instance
+-Pull the changes (git pull)
+
+BETTER Approach: 
+CI/CD pipeline:
+
+-Set up GitHub Actions or AWS CodePipeline
+-When you push to  repo, it automatically:
+    -Pulls changes on EC2 instances
+    -Rebuilds frontend/backend
+    -Restarts services
 
 Deployment/cloud hosting: 
 

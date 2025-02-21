@@ -10,21 +10,21 @@ RANDOM Development TODOS prior to AWS host integration:
 -- Add empty note card for if no cards have been made yet - DONE 
 -- Add Search API so users can search through database for notes - DONE 
 -- Add Pin API so notes that're pinned is noted in db - DONE 
--- Add Undo Pin (Toast msg and icon changes on pin undo)
+-- Add Undo Pin (Toast msg and icon changes on pin undo) - DONE 
 -- Add Home page, with option to direct to login and option to direct to createAccount
-    -Home page has Title, Info on what the app does, Images of developers maybe?
--- 'DevNotes' title is clickable and will take you to home page 
--- Apperance / feel improvements to be made
+    -Home page has Title, Info on what the app does, Images of developers maybe? - DONE 
+-- 'DevNotes' title is clickable and will take you to home page - DONE 
+-- Apperance / feel improvements to be made - WORKING ON
 -- 
 
 TO DO'S for after deploy prior todos:
 
-- Need to transform Notes into DevNotes and perfect apperance attributes
-- Need to add toast msg react component
-- Need to move React/Vite frontend server to EC2 instance
-- Need to move Node/Express backend server to separate EC2 instance
-- Need to add images to each note, stored in an AWS S3 Bucket, associated with the note ID
-- Test DevNotes on public host and purchase domain name for it, sending the user to the frontend ec2 server host URL
+DONE - Need to transform Notes into DevNotes and perfect apperance attributes
+DONE - Need to add toast msg react component
+DONE - Need to move React/Vite frontend server to EC2 instance
+DONE - Need to move Node/Express backend server to separate EC2 instance
+DONE  - Need to add images to each note, stored in an AWS S3 Bucket, associated with the note ID
+DONE - Test DevNotes on public host and purchase domain name for it, sending the user to the frontend ec2 server host URL
 
 -- potentially add comments to notes that users can leave.. 
 
