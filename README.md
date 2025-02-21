@@ -2,16 +2,16 @@
 
 DevNotes is a full-stack web application built using the MERN stack (MongoDB, Express.js, React, Node.js) and deployed on AWS infrastructure using Terraform. It allows developers to create, organize, and save code snippets and development notes.
 
+
 #### Live Demo: http://98.83.115.12
 
 
 <img src="images/Screenshot 2025-02-21 at 5.35.44 PM.png" width="350" title="LightModeDashboard">
 
 
-<img src="images/Screenshot 2025-02-21 at 5.36.11 PM.png
-" width="350" title="DarkModeDashboard">
+<img src="images/Screenshot 2025-02-21 at 5.36.11 PM.png" width="350" title="DarkModeDashboard">
 
-### Table of Contents
+## Table of Contents
 
 - [DevNotes - FullStack MERN AWS Application](#devnotes---fullstack-mern-aws-application)
       - [Live Demo: http://98.83.115.12](#live-demo-http988311512)
