@@ -1,5 +1,16 @@
 Documentation for MERN Devnotes project: 
 
+
+
+
+GO TO documentation.md file for updated, recent documentation. 
+
+This file was used during development for ease in a .txt file.
+
+
+
+
+
 -- Deployment/cloud hosting: 
     
     - Terraform IaC Automated deployment 
@@ -82,11 +93,7 @@ CI/CD pipeline:
     -Rebuilds frontend/backend
     -Restarts services
 
-Deployment/cloud hosting: 
+Deployment Documentation: Doing in documentation.md
 
-    - Create locally, then run frontend React build + backend servers on 
-    AWS ec2 instances to host. 
-    - MongoDB Atlas for managed MongoDB cloud service
-    - Add images in AWS S3 Buckets to each note
 
 
